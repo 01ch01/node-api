@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// creating model with mongoose 'language'
+// creating model with mongoose 'language' (sql -> json)
 const ProductSchema = new mongoose.Schema({
   title: {
     type: String,
