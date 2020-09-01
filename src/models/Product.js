@@ -20,5 +20,5 @@ const ProductSchema = new mongoose.Schema({
   },
 });
 
-// register model
+// register (create) model
 mongoose.model('Product', ProductSchema);
