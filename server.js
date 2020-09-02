@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
@@ -7,6 +8,7 @@ const app = express();
 
 // parse data to JSON format
 app.use(express.json());
+app.use(cors());
 
 // init database
 const url = 'mongodb://localhost:27017/nodeapi';
