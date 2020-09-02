@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 // creating model with mongoose 'language' (sql -> json)
 const ProductSchema = new mongoose.Schema({
@@ -19,6 +20,8 @@ const ProductSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+ProductSchema.plugin(mongoosePaginate);
 
 // register (create) model
 mongoose.model('Product', ProductSchema);
