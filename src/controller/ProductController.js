@@ -4,7 +4,9 @@ const Product = mongoose.model('Product');
 module.exports = {
   // read / listing
   async index(req, res) {
-    const products = await Product.paginate({}, { page: 1, limit: 10 });
+    const { page = 1 } = req.query;
+    const products = await Product.paginate({}, { page, limit: 10 });
+
     return res.json(products);
   },
 
@@ -22,6 +24,7 @@ module.exports = {
     return res.json(product);
   },
 
+  // update
   async update(req, res) {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: false,
@@ -29,11 +32,9 @@ module.exports = {
     return res.json(product);
   },
 
+  // delete
   async destroy(req, res) {
     await Product.findByIdAndRemove(req.params.id);
     return res.send();
   },
-
-  // update
-  // delete
 };
