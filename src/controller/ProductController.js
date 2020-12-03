@@ -19,7 +19,7 @@ module.exports = {
   // create
   async store(req, res) {
     // wait a body JSON api info response
-    // req.body = api data in JSON forma t
+    // req.body = api data in JSON format
     const product = await Product.create(req.body);
     return res.json(product);
   },
